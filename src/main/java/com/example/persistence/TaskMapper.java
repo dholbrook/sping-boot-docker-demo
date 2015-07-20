@@ -1,9 +1,7 @@
 package com.example.persistence;
 
 import com.example.domain.Task;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 public interface TaskMapper {
 
@@ -35,7 +33,7 @@ public interface TaskMapper {
     @Options(useGeneratedKeys = true, keyProperty = "id")
     int addTask(Task task);
 
-    @Insert(UPDATE_TASK_SQL)
+    @Update(UPDATE_TASK_SQL)
     int updateTask(Task task);
 
 }
