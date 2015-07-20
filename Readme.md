@@ -46,3 +46,13 @@ update a task item
 
     $ http -v PUT localhost:8080/task/1 id:=1 description="updated 1" complete=true
     
+launch integrated docker containers (app + db), must have previously build docker image 
+
+    $ docker-compose -f docker-compose-all.yml up
+
+save a new task item to app in docker container 
+
+    $ boot2docker ip
+    192.168.59.103
+    $ http -v POST 192.168.59.103:8080/task description="task x"
+    
