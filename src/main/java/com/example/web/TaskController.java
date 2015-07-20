@@ -34,6 +34,12 @@ public class TaskController {
 
     @RequestMapping(value = "/task/{taskId}", method = RequestMethod.PUT)
     public Task updateTask(@PathVariable Long taskId, @RequestBody Task task) {
+
+        //set id from uri path
+        if(task.getId() == null) {
+            task.setId(taskId);
+        }
+
         int changed = taskMapper.updateTask(task);
         if (changed == 0) {
             throw new NotFoundException();
