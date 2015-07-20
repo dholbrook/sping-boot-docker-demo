@@ -44,5 +44,5 @@ get a task item
     
 update a task item
 
-    $ http -v localhost:8080/task/1
+    $ http -v PUT localhost:8080/task/1 id:=1 description="updated 1" complete=true
     
